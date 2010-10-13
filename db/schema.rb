@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101013001614) do
+ActiveRecord::Schema.define(:version => 20101013043219) do
 
   create_table "data_files", :force => true do |t|
     t.string   "title"
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(:version => 20101013001614) do
   create_table "fields", :force => true do |t|
     t.string   "name"
     t.text     "doc"
-    t.string   "type"
     t.integer  "data_file_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "data_type"
   end
 
 end
