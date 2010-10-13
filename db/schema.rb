@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101011232448) do
+ActiveRecord::Schema.define(:version => 20101013001614) do
 
   create_table "data_files", :force => true do |t|
     t.string   "title"
@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20101011232448) do
     t.text     "schema"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "dataset_id"
   end
 
   create_table "datasets", :force => true do |t|
@@ -26,6 +27,15 @@ ActiveRecord::Schema.define(:version => 20101011232448) do
     t.string   "phone"
     t.string   "title"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fields", :force => true do |t|
+    t.string   "name"
+    t.text     "doc"
+    t.string   "type"
+    t.integer  "data_file_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

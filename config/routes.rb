@@ -10,7 +10,10 @@ ActionController::Routing::Routes.draw do |map|
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-     map.resources :datasets
+  map.resources :datasets do |m|
+    m.resources :data_files
+  end
+
 
   # Sample resource route with options:
   #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
@@ -31,7 +34,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-   map.root :controller => "dataset"
+   map.root :controller => "datasets"
 
   # See how all your routes lay out with "rake routes"
 
