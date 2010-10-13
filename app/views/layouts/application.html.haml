@@ -12,10 +12,10 @@
     %script{:type => "text/javascript", :src=> "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/jquery-ui.min.js"}
     =javascript_include_tag :defaults
   %body
-    #container_outer
+    #container
       #nav_container
         = render :partial => '/app/topbar'
-      #container
+      #inner_container
         = yield
 
 
