@@ -7,12 +7,18 @@
   =@dataset.title
 
 %h3
-  Data Files: 
--for df in @dataset.data_files
+  Data Files:
+-if @dataset.data_files.empty?
+  No files yet, click below to start.
+-else
+  -for df in @dataset.data_files
+    .flowbox
+      %h4
+        =df.title
+      Records: 
+      =df.record_count
 
-  %h4
-    =df.title
-  Record Count : 
-  =df.record_count
 %br
+=link_to "Back", datasets_path  
 =link_to "Add Data File", new_dataset_data_file_path(@dataset)
+
