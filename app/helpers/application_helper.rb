@@ -2,7 +2,7 @@
 module ApplicationHelper
 
   def link_to_add_fields(name,form)
-    fields = form.fields_for(:field, Field.new, :child_index => "new_field") do |builder|
+    fields = form.fields_for(:field, Field.new) do |builder|
       render "field", :f => builder
     end
     link_to_function(name,"add_block(this,\'#{escape_javascript(fields)}\')")
