@@ -1,10 +1,11 @@
-.flowbox {
+.field_flowbox {
   display: block;  
   background-color: #DCDCDC;
   border: 1px solid #696969;
-  padding: 15px 10px 10px 15px;
-  -moz-border-radius: 2px; 
-  -webkit-border-radius: 2px;
+  padding: 15px 5px 5px 15px;
+  margin-bottom: 3px;
+  -moz-border-radius: 4px; 
+  -webkit-border-radius: 4px;
   overflow:auto;
   width: 50%;
 }
