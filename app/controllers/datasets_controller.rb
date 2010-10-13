@@ -11,6 +11,8 @@ class DatasetsController < ApplicationController
     @dataset = Dataset.new(params[:dataset])
     if @dataset.save
       redirect_to @dataset
+    else
+      render :action => "new"
     end
   end
 

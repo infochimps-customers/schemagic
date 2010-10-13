@@ -14,7 +14,6 @@ ActionController::Routing::Routes.draw do |map|
     m.resources :data_files
   end
 
-
   # Sample resource route with options:
   #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
 

@@ -1,10 +1,18 @@
 %h1
+  Company: 
   =@dataset.company_name
 %br
+%h2
+  Dataset: 
   =@dataset.title
 
+%h3
+  Data Files: 
 -for df in @dataset.data_files
-  =df.title
-  =df.record_count
 
+  %h4
+    =df.title
+  Record Count : 
+  =df.record_count
+%br
 =link_to "Add Data File", new_dataset_data_file_path(@dataset)
