@@ -10,3 +10,4 @@ tmp/**/*
 db/*.sqlite3
 *.tmproj
 *.sw?
+Gemfile.lock
