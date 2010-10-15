@@ -29,24 +29,26 @@ $('.swap_up').live('click',function() {
 
 function remove_file_block(link) {
   var parent = $(link).parent().parent();
+  $(link).prev("input[type=hidden]").val(1);
   $(link).closest(".data_file_flowbox").fadeOut('fast', function(){$(this).remove();});
+
 }
 
 function add_file_block(link) {
     var num_data_files = $(link).parent().find(".data_files .data_file_flowbox").length;
     $(link).parent().find(".data_files").append($("#data_file_template").clone().html().replace(/new_data_file/g,new Date().getTime()));
-        
 }
 
 function remove_field_block(link) {
   var parent = $(link).parent().parent();
-  $(link).closest(".field_flowbox").fadeOut('fast', function(){$(this).remove();});
+  $(link).prev("input[type=hidden]").val("true");
+  $(link).closest(".field_flowbox").fadeOut('fast', function(){});
   renumerate_fields(parent);
 }
 
 function add_field_block(link) {
     var num_fields = $(link).parent().find(".fields .field_flowbox").length;
-    $(link).parent().find(".fields").append($("#field_template").clone().html().replace(/new_field/g,num_fields));
+    $(link).parent().find(".fields").append($("#field_template").clone().html().replace(/new_field/g,new Date().getTime()));
 }
 
 function swap_block_up(link) {
