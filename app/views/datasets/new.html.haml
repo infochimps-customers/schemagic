@@ -2,9 +2,4 @@
   With this tool you can provide Infochimps with detailed information about the form of the data you have.
   We will create the schema for your dataset by defining the table(s) in the dataset and the fields that each table contains.
 
--form_for @dataset do |form|
-  =render "form", :f => form
-  %div.add_file_button
-    =link_to(image_tag("32/plus-a.png"), "#")
-    Add File
-  =form.submit "Create Dataset"
+=render "form"

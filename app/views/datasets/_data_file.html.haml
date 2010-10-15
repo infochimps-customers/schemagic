@@ -1,6 +1,8 @@
 %div.data_file_flowbox
   %h2.file_header
     Data File
+  %div.remove_file_button{:style => "float:right;"}
+    =link_to(image_tag("cross.png"), "#")
   =f.label :title
   =f.text_field :title
   %br
@@ -13,4 +15,4 @@
   %br
   %div.add_field_button
     =link_to(image_tag("32/plus-h.png"), "#")
-    Add Field
+  Add Field

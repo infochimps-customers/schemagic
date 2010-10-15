@@ -30,12 +30,12 @@ $('.swap_up').live('click',function() {
 function remove_file_block(link) {
   var parent = $(link).parent().parent();
   $(link).closest(".data_file_flowbox").fadeOut('fast', function(){$(this).remove();});
-  renumerate_data_files(parent);
 }
 
 function add_file_block(link) {
     var num_data_files = $(link).parent().find(".data_files .data_file_flowbox").length;
-    $(link).parent().find(".data_files").append($("#data_file_template").clone().html().replace(/new_data_file/g,num_data_files));
+    $(link).parent().find(".data_files").append($("#data_file_template").clone().html().replace(/new_data_file/g,new Date().getTime()));
+        
 }
 
 function remove_field_block(link) {
@@ -51,15 +51,15 @@ function add_field_block(link) {
 
 function swap_block_up(link) {
  if($(link).closest(".field_flowbox").prev(".field_flowbox").length >= 2) {
-  $(link).closest(".field_flowbox").append($(link).prev(".field_flowbox"));
-  renumerate_fields(link);
+    $(link).closest(".field_flowbox").append($(link).prev(".field_flowbox"));
+    renumerate_fields(link);
  }
 }
 
 function swap_block_down(link) {
  if($(link).closest(".field_flowbox").prev(".field_flowbox").length >= 2) {
-  $(link).closest(".field_flowbox").append($(link).prev(".field_flowbox"));
-  renumerate_fields(link);
+   $(link).closest(".field_flowbox").append($(link).prev(".field_flowbox"));
+   renumerate_fields(link);
  }
 }
 

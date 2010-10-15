@@ -9,16 +9,27 @@
 %h3
   Data Files:
 -if @dataset.data_files.empty?
-  No files yet, click below to start.
+  No files yet, please add a file before submitting.
 -else
-  -for df in @dataset.data_files
-    .flowbox
-      %h4
+  %ul  
+    -for df in @dataset.data_files
+      %li
         =df.title
-      Records: 
-      =df.record_count
+        %ul
+          -for f in df.fields
+            %li
+              =f.name
+              -unless f.doc.blank?
+                <span>--</span>
+                =f.doc
+
+                              
+              
+
+
+        
 
 %br
-=link_to "Back", datasets_path  
-=link_to "Add Data File", new_dataset_data_file_path(@dataset)
+=link_to "Edit Dataset", edit_dataset_path(@dataset)
+
 
