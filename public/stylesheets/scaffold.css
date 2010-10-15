@@ -19,7 +19,28 @@
   -moz-border-radius: 2px; 
   -webkit-border-radius: 2px;
   overflow:auto;
-  width: 70%;
+  width: 95%;
+}
+
+.flowbox {
+  display: block;  
+  background-color: #C1BFC2;
+  border: 1px solid #696969;
+  padding: 5px 10px 5px 10px;
+  margin-bottom: 3px;
+  -moz-border-radius: 2px; 
+  -webkit-border-radius: 2px;
+  overflow:auto;
+  width: 100%;
+}
+
+.step {
+  padding:10px;
+}
+
+.field_options {
+  float:right;
+  width:16px;
 }
 
 .add_field_button{width:32px;height:32px;}

@@ -2,10 +2,13 @@
   %h3.field_header
     Field
   =f.hidden_field :_destroy
-  %div.remove_field_button{:style => "float:right;"}
-    =link_to(image_tag("cross.png"), "#")
-  -# %div.swap_up{:style => "float:right;"}
-  -#   =link_to(image_tag("32/up-h.png"),"#")  
+  %div.field_options
+    %div.remove_field_button{:style => "padding:5px"}
+      =link_to(image_tag("cross.png"), "#")
+    %div.swap_up{:style => "padding:5px"}
+      =link_to(image_tag("16/up-h.png"),"#")
+    %div.swap_down{:style => "padding:5px"}
+      =link_to(image_tag("16/down-h.png"),"#")  
   =f.label :name
   =f.text_field :name
   =f.label :data_type, "Data Type"

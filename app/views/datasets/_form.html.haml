@@ -1,23 +1,31 @@
 -form_for @dataset do |form|
+  =form.error_messages  
+  .flowbox
+    =form.label :company_name
+    =form.text_field :company_name
+    %br
+    =form.label :email
+    =form.text_field :email
+    %br
+    =form.label :contact_name
+    =form.text_field :contact_name
+    %br
+    =form.label :phone
+    =form.text_field :phone
+    %br
+    =form.label :title
+    =form.text_field :title
 
-  =form.label :company_name
-  =form.text_field :company_name
-  %br
-  =form.label :email
-  =form.text_field :email
-  %br
-  =form.label :contact_name
-  =form.text_field :contact_name
-  %br
-  =form.label :phone
-  =form.text_field :phone
-  %br
-  =form.label :title
-  =form.text_field :title
-
-  =form.label :description
-  =form.text_area :description, :rows => 3
-  %br
+    =form.label :description
+    =form.text_area :description, :rows => 3
+  %br.clear
+  %div.step 
+    %h3
+      2. Describe the fields of the table
+    %h4
+      %ul
+        %li
+          If you have multiple related tables, use the "Add File" button to create additional forms
   .data_files
     -form.fields_for :data_files, :child_index => Time.now.to_i do |ff|
       =render "data_file", :f => ff
@@ -32,7 +40,13 @@
   %div.add_file_button
     =link_to(image_tag("32/plus-a.png"), "#")
     Add File
+  %br.clear
+  %div.step
+    %h3
+      3. Click "Review" to see a summary of the dataset schema
+    %h4
+      %ul
+        %li
+          You can always come back and make changes
   %div{:style => "float:right;"}
     =form.submit "Review"
-
-

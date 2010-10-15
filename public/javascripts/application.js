@@ -25,6 +25,11 @@ $('.swap_up').live('click',function() {
     return false;
 });
 
+$('.swap_down').live('click',function() {
+    swap_block_down(this);
+    return false;
+});  
+
 });
 
 function remove_file_block(link) {
@@ -52,16 +57,16 @@ function add_field_block(link) {
 }
 
 function swap_block_up(link) {
- if($(link).closest(".field_flowbox").prev(".field_flowbox").length >= 2) {
-    $(link).closest(".field_flowbox").append($(link).prev(".field_flowbox"));
+  if($(link).closest(".fields").prev().length > 0) {
+   $(link).closest(".fields .field_flowbox").prev().before($(link).closest(".fields .field_flowbox"));   
     renumerate_fields(link);
  }
 }
 
 function swap_block_down(link) {
- if($(link).closest(".field_flowbox").prev(".field_flowbox").length >= 2) {
-   $(link).closest(".field_flowbox").append($(link).prev(".field_flowbox"));
-   renumerate_fields(link);
+  if($(link).closest(".fields").next().length > 0) {  
+   $(link).closest(".fields .field_flowbox").next().after($(link).closest(".fields .field_flowbox"));   
+    renumerate_fields(link);
  }
 }
 
