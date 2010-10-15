@@ -5,6 +5,8 @@ class DatasetsController < ApplicationController
 
   def new
     @dataset = Dataset.new
+    @data_file = @dataset.data_files.build
+    @field = @data_file.fields.build
   end
 
   def create

@@ -1,10 +1,15 @@
 module ApplicationHelper
 
-  def link_to_add_fields(name,form)
-    fields = form.fields_for :fields,Field.new do |builder|
-               render "field", :f => builder
-             end
-    link_to_function(name,"add_block(this,\'#{escape_javascript(fields)}\')")
+  def gen_field_template(form)
+    form.fields_for :fields,Field.new, :child_index => "new_field" do |builder|
+      render "field", :f => builder
+    end
+  end
+
+  def gen_data_file_template(form)
+    form.fields_for :data_files,DataFile.new, :child_index => "new_data_file" do |builder|
+      render "data_file", :f => builder
+    end
   end
 
 end
