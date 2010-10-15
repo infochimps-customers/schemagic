@@ -28,6 +28,10 @@ $(document).ready(function() {
   $('.swap_down').live('click',function() {
     swap_block_down(this);
     return false;
+  });
+
+  $('input#dataset_submit').click(function() {
+    renumerate_fields(this);
   });  
 
 });
@@ -41,6 +45,7 @@ function remove_file_block(link) {
 function add_file_block(link) {
   var num_data_files = $(link).parent().find(".data_files .data_file_flowbox").length;
   $(link).parent().find(".data_files").append($("#data_file_template").clone().html().replace(/new_data_file/g,new Date().getTime()));
+  renumerate_fields(link);  
 }
 
 function remove_field_block(link) {
@@ -51,6 +56,7 @@ function remove_field_block(link) {
 function add_field_block(link) {
   var num_fields = $(link).parent().find(".fields .field_flowbox").length;
   $(link).parent().find(".fields").append($("#field_template").clone().html().replace(/new_field/g,new Date().getTime()));
+  renumerate_fields(link);
 }
 
 function swap_block_up(link) {
