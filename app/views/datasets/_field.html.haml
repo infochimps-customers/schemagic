@@ -1,0 +1,15 @@
+.field_flowbox
+  %h3.field_header
+    Field
+  %div.remove_field_button{:style => "float:right;"}
+    =link_to(image_tag("cross.png"), "#")
+  -# %div.swap_up{:style => "float:right;"}
+  -#   =link_to(image_tag("32/up-h.png"),"#")  
+  =f.label :name
+  =f.text_field :name
+  =f.label :data_type, "Data Type"
+  =select_tag :data_type, options_for_select(Field::TYPES)       
+  %br
+  =f.label :doc, "Description"
+  =f.text_field :doc, :size => 50 
+

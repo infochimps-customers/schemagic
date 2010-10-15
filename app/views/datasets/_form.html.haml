@@ -1,0 +1,27 @@
+=f.label :company_name
+=f.text_field :company_name
+%br
+=f.label :email
+=f.text_field :email
+%br
+=f.label :contact_name
+=f.text_field :contact_name
+%br
+=f.label :phone
+=f.text_field :phone
+%br
+=f.label :title
+=f.text_field :title
+%br
+=f.label :description
+=f.text_area :description, :rows => 3
+%br
+-f.fields_for :data_files do |ff|
+  =render "data_file", :f => ff
+
+  #field_template{:style => "display:none;"}
+    =gen_field_template(ff)
+
+#data_file_template{:style => "display:none;"}
+  =gen_data_file_template(f)
+
