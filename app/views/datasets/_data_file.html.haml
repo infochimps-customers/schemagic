@@ -10,7 +10,7 @@
   =f.text_field :record_count
   %br.clear
   .fields    
-    -f.fields_for :fields do |ff|
+    -f.fields_for :fields,:child_index => Time.now.to_i do |ff|
       =render "field", :f => ff
   %br
   %div.add_field_button

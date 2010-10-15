@@ -5,7 +5,6 @@
 %h2
   Dataset: 
   =@dataset.title
-
 %h3
   Data Files:
 -if @dataset.data_files.empty?
@@ -16,20 +15,11 @@
       %li
         =df.title
         %ul
-          -for f in df.fields
+          -for f in df.fields.by_column
             %li
               =f.name
               -unless f.doc.blank?
                 <span>--</span>
                 =f.doc
-
-                              
-              
-
-
-        
-
 %br
 =link_to "Edit Dataset", edit_dataset_path(@dataset)
-
-

@@ -20,6 +20,7 @@ class DatasetsController < ApplicationController
 
   def show
     @dataset = Dataset.find(params[:id])
+
   end
 
   def edit

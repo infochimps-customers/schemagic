@@ -1,3 +1,5 @@
+%h3
+  1.  Please provide some background information 
 -form_for @dataset do |form|
   =form.error_messages  
   .flowbox
@@ -15,7 +17,7 @@
     %br
     =form.label :title
     =form.text_field :title
-
+    %br
     =form.label :description
     =form.text_area :description, :rows => 3
   %br.clear
@@ -39,7 +41,7 @@
 
   %div.add_file_button
     =link_to(image_tag("32/plus-a.png"), "#")
-    Add File
+  Add File
   %br.clear
   %div.step
     %h3
