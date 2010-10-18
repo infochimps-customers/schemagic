@@ -1,8 +1,5 @@
 class DatasetsController < ApplicationController
 
-  def index
-  end
-
   def new
     @dataset = Dataset.new
     @data_file = @dataset.data_files.build
@@ -20,24 +17,22 @@ class DatasetsController < ApplicationController
   end
 
   def show
-    @dataset = (Dataset.find_by_uuid(params[:uuid]) or raise ActiveRecord::RecordNotFound.new)
+    @dataset = (Dataset.find_by_uuid(params[:id]) or raise ActiveRecord::RecordNotFound.new)
   end
 
   def edit
-    @dataset = (Dataset.find_by_uuid(params[:uuid])or raise ActiveRecord::RecordNotFound.new)
+    @dataset = (Dataset.find_by_uuid(params[:id])or raise ActiveRecord::RecordNotFound.new)
   end
 
   def update
-    @dataset = Dataset.find_by_uuid(params[:uuid])
+    @dataset = Dataset.find_by_uuid(params[:id])
     if @dataset.update_attributes(params[:dataset])
       flash[:notice] = "Updated Dataset Successfully"
-      redirect_to @dataset
+      redirect_to dataset_path(@dataset.uuid)
     else
       render :action => "edit"
     end
   end
 
-  def destroy
-  end
 
 end

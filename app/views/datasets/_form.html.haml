@@ -1,6 +1,6 @@
 %h3
   1.  Please provide some background information 
--form_for @dataset do |form|
+-form_for @dataset,:url => dataset_path(@dataset.uuid),:html => {:id => "edit_dataset_#{@dataset.uuid}"} do |form|
   =form.error_messages  
   .flowbox
     =form.label :company_name, "Company*"

@@ -18,9 +18,9 @@
           -for f in df.fields.by_column
             %li
               =f.name
-              (#{f.data_type})
+              [#{f.data_type}]
               -unless f.doc.blank?
                 <span>--</span>
                 =f.doc
 %br
-=link_to "Edit Dataset", edit_dataset_path(@dataset)
+=link_to "Edit Dataset", edit_dataset_path(@dataset.uuid)
