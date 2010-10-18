@@ -1,3 +1,4 @@
-=render "form"
+-form_for @dataset,:url => dataset_path(@dataset.uuid),:html => {:id => "edit_dataset_#{@dataset.uuid}"} do |form|
+  =render "form", :form => form
 %div{:style => "float:right;"}
   =link_to "Cancel Changes",dataset_path(@dataset.uuid)

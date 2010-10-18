@@ -1,50 +1,49 @@
 %h3
   1.  Please provide some background information 
--form_for @dataset,:url => dataset_path(@dataset.uuid),:html => {:id => "edit_dataset_#{@dataset.uuid}"} do |form|
-  =form.error_messages  
-  .flowbox
-    =form.label :company_name, "Company*"
-    =form.text_field :company_name
-    %br
-    =form.label :email, "Email*"
-    =form.text_field :email
-    %br
-    =form.label :contact_name
-    =form.text_field :contact_name
-    %br
-    =form.label :phone
-    =form.text_field :phone
-    %br
-    =form.label :title, "Title*"
-    =form.text_field :title
-    %br
-    =form.label :description, "Description*"
-    =form.text_area :description, :rows => 3
-  %br.clear
-  %div.step 
-    %h3
-      2. Describe the fields of the table
-    %h4
-      %ul
-        %li
-          If you have multiple related tables, use the "Add File" button to create additional forms
-  .flowbox
-    .data_files
-      -form.fields_for :data_files do |ff|
-        =render "data_file", :f => ff
-      #data_file_template{:style => "display:none;"}
-        =gen_data_file_template(form)
+=form.error_messages  
+.flowbox
+  =form.label :company_name, "Company*"
+  =form.text_field :company_name
+  %br
+  =form.label :email, "Email*"
+  =form.text_field :email
+  %br
+  =form.label :contact_name
+  =form.text_field :contact_name
+  %br
+  =form.label :phone
+  =form.text_field :phone
+  %br
+  =form.label :title, "Title*"
+  =form.text_field :title
+  %br
+  =form.label :description, "Description*"
+  =form.text_area :description, :rows => 3
+%br.clear
+%div.step 
+  %h3
+    2. Describe the fields of the table
+  %h4
+    %ul
+      %li
+        If you have multiple related tables, use the "Add File" button to create additional forms
+.flowbox
+  .data_files
+    -form.fields_for :data_files do |ff|
+      =render "data_file", :f => ff
+    #data_file_template{:style => "display:none;"}
+      =gen_data_file_template(form)
 
-    %div.add_file_button
-      =link_to(image_tag("32/plus-a.png"), "#")
-    Add File
-  %br.clear
-  %div.step
-    %h3
-      3. Click "Review" to see a summary of the dataset schema
-    %h4
-      %ul
-        %li
-          You can always come back and make changes
-  %div{:style => "float:right;"}
-    =form.submit "Review"
+  %div.add_file_button
+    =link_to(image_tag("32/plus-a.png"), "#")
+  Add File
+%br.clear
+%div.step
+  %h3
+    3. Click "Review" to see a summary of the dataset schema
+  %h4
+    %ul
+      %li
+        You can always come back and make changes
+%div{:style => "float:right;"}
+  =form.submit "Review"
