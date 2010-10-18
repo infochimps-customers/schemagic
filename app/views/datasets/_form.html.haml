@@ -2,24 +2,21 @@
   1.  Please provide some background information 
 -form_for @dataset,:url => dataset_path(@dataset.uuid),:html => {:id => "edit_dataset_#{@dataset.uuid}"} do |form|
   =form.error_messages  
-  .flowbox
-    =form.label :company_name, "Company*"
-    =form.text_field :company_name
-    %br
-    =form.label :email, "Email*"
-    =form.text_field :email
-    %br
-    =form.label :contact_name
-    =form.text_field :contact_name
-    %br
-    =form.label :phone
-    =form.text_field :phone
-    %br
-    =form.label :title, "Title*"
-    =form.text_field :title
-    %br
-    =form.label :description, "Description*"
-    =form.text_area :description, :rows => 3
+  .flowbox.boxtop
+    %div
+      =form.label :company_name, "Company*"
+      =form.text_field :company_name
+      =form.label :email, "Email*"
+      =form.text_field :email
+      =form.label :contact_name
+      =form.text_field :contact_name
+      =form.label :phone
+      =form.text_field :phone
+    %div
+      =form.label :title, "Title*"
+      =form.text_field :title
+      =form.label :description, "Description*"
+      =form.text_area :description, :rows => 3
   %br.clear
   %div.step 
     %h3
@@ -37,7 +34,7 @@
 
     %div.add_file_button
       =link_to(image_tag("32/plus-a.png"), "#")
-    Add File
+    //Add File
   %br.clear
   %div.step
     %h3

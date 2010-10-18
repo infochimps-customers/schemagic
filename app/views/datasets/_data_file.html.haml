@@ -3,12 +3,13 @@
     Data File
   %div.remove_file_button{:style => "float:right;"}
     =link_to(image_tag("cross.png"), "#")
-  =f.label :title, "Title/Path*"
-  =f.text_field :title
-  %br
-  =f.label :record_count, "Number of Records"
-  =f.text_field :record_count
-  %br.clear
+  %div.forms
+    =f.label :title, "Title/Path*"
+    =f.text_field :title
+    %br
+    =f.label :record_count, "Number of Records"
+    =f.text_field :record_count
+    %br.clear
   .fields    
     -f.fields_for :fields do |ff|
       =render "field", :f => ff
@@ -17,4 +18,4 @@
   %br
   %div.add_field_button
     =link_to(image_tag("32/plus-h.png"), "#")
-  Add Field
+  //Add Field

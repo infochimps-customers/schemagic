@@ -1,9 +1,9 @@
 .data_file_flowbox {
   display: block;  
-  background-color: #CDCDCD;
-  border: 1px solid #696969;
+  background-color: #FFF;
+  border: 1px solid #C7D1D4;
   padding: 5px 10px 5px 10px;
-  margin-bottom: 3px;
+  margin: 17px 0px 0px 12px;
   -moz-border-radius: 5px; 
   -webkit-border-radius: 5px;
   overflow:auto;
@@ -11,9 +11,10 @@
 }
 
 .field_flowbox {
+  margin-top:10px;
   display: block;  
-  background-color: #DCDCDC;
-  border: 1px solid #696969;
+  background-color: #F2F4F5;
+  border: 1px solid #C7D1D4;
   padding: 5px 10px 5px 10px;
   margin-bottom: 3px;
   -moz-border-radius: 2px; 
@@ -24,14 +25,14 @@
 
 .flowbox {
   display: block;  
-  background-color: #E8E8E8;
-  border: 1px solid #696969;
-  padding: 5px 10px 5px 10px;
+  background-color: #F2F4F5;
+  border: 1px solid #C7D1D4;
+  padding: 5px 10px 10px 10px;
   margin-bottom: 3px;
-  -moz-border-radius: 2px; 
-  -webkit-border-radius: 2px;
+  -moz-border-radius: 10px; 
+  -webkit-border-radius: 10px;
   overflow:auto;
-  width: 90%;
+  position:relative;
 }
 
 .step {
@@ -44,22 +45,26 @@
 }
 
 .add_field_button{width:32px;height:32px;}
-.add_file_button{width:32px;height:32px;}
+.add_file_button{width:32px;height:32px; position:relative; top:5px; left:23px;}
+.add_field_button span {display:block; float:left;}
+
+input#dataset_submit {font-size:16px;}
+
 
 body {
-  background-color: #4B7399;
+  background-color: #FFF;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
 }
 
 .field_header {
   float:left;
-  width:100px;
+  width:150px;
 }
 
 .file_header {
   float:left;
-  width:200px;
+  width:160px;
 }
 
 a img {
@@ -77,13 +82,29 @@ a {
 }
 
 #inner_container {
-  width: 75%;
+  width: 950px;
   margin: 0 auto;
   background-color: #FFF;
-  padding: 20px 40px;
-  border: solid 1px black;
   margin-top: 20px;
   overflow:auto;
+}
+
+#nav_container{
+  width: 960px;
+  margin: 0 auto;	
+  margin-top:10px;
+  border-bottom:2px solid #4D5D85;
+}
+
+#inner_container p {
+  font:14px arial;
+  line-height:20px;
+}
+
+#nav_container h1 {
+	color:#10293A;
+	font-size:48px;
+	font-weight:bold;
 }
 
 #flash_notice, #flash_error {
@@ -138,3 +159,78 @@ a {
   font-size: 12px;
   list-style: disc;
 }
+
+.flowbox.boxtop label {
+	width:200px;
+	display:block;
+	font:14px arial;
+}
+.flowbox.boxtop input {
+	width:429px;
+	font:12px arial;
+	padding:5px;
+	margin-bottom:8px;
+}
+.flowbox.boxtop div {
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	vertical-align:top;
+	margin:5px 10px 0px;
+	width:441px;
+}
+.flowbox.boxtop div textarea {
+	width:429px;
+	height:122px;
+	font:12px arial;
+}
+h2 {
+	font-size:30px !important;
+}
+h4 ul {
+	list-style:none;	
+}
+
+h4 ul li {
+	padding:5px 0px 5px 35px;
+	background:url("list.jpg") no-repeat left 4px !important;
+	display:block;
+	font-size:17px;
+}
+
+.description {
+	position:absolute;
+	top:4px;
+	right:10px;
+}
+
+.forms label, .forms input {
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	vertical-align:top;	
+} 
+.forms label, .subforms label {
+	width:130px;
+	font:14px arial;
+	line-height:26px;
+	text-align:right;
+}
+
+.subforms label, .subforms input {
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	vertical-align:top;		
+}
+.forms input, .subforms input, .subforms select {padding:3px 0px;}
+.smaller-label {width:75px !important;}
+.add_field_button a img {float:left;}
+
+
+#container {padding-bottom:20px;}
+
+
