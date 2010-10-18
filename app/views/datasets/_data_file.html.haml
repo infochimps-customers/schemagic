@@ -10,8 +10,10 @@
   =f.text_field :record_count
   %br.clear
   .fields    
-    -f.fields_for :fields,:child_index => Time.now.to_i do |ff|
+    -f.fields_for :fields do |ff|
       =render "field", :f => ff
+    #field_template{:style => "display:none;"}
+      =gen_field_template(f)
   %br
   %div.add_field_button
     =link_to(image_tag("32/plus-h.png"), "#")

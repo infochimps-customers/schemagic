@@ -45,7 +45,6 @@ function remove_file_block(link) {
 function add_file_block(link) {
   var num_data_files = $(link).parent().find(".data_files .data_file_flowbox").length;
   $(link).parent().find(".data_files").append($("#data_file_template").clone().html().replace(/new_data_file/g,new Date().getTime()));
-  renumerate_fields(link);  
 }
 
 function remove_field_block(link) {
@@ -55,21 +54,23 @@ function remove_field_block(link) {
 
 function add_field_block(link) {
   var num_fields = $(link).parent().find(".fields .field_flowbox").length;
-  $(link).parent().find(".fields").append($("#field_template").clone().html().replace(/new_field/g,new Date().getTime()));
-  renumerate_fields(link);
+  $(link).parent().find(".fields").append($(link).parent().children(".fields").children("#field_template").clone().html().replace(/new_field/g,new Date().getTime()));
 }
 
 function swap_block_up(link) {
-  if($(link).closest(".fields").prev().length > 0) {
-    $(link).closest(".fields .field_flowbox").prev().before($(link).closest(".fields .field_flowbox"));
-    renumerate_fields(link);
+  if($(link).closest(".fields .field_flowbox").prev(".field_flowbox:visible").length > 0) {
+  var block = $(link).closest(".fields .field_flowbox");   
+    $(link).closest(".fields .field_flowbox").prev().before(block);
+   block.animate({backgroundColor: '#FFFFFF'}, 200).delay(100).animate({backgroundColor: '#DCDCDC'}, 200);
   }
 }
 
 function swap_block_down(link) {
-  if($(link).closest(".fields").next().length > 0) {  
-    $(link).closest(".fields .field_flowbox").next().after($(link).closest(".fields .field_flowbox"));   
-    renumerate_fields(link);
+  if($(link).closest(".fields .field_flowbox").next(".field_flowbox:visible").length > 0) {  
+    var block = $(link).closest(".fields .field_flowbox");   
+    // $(link).closest(".fields .field_flowbox").next().after(block);
+    //  block.animate({backgroundColor: '#FFFFFF'}, 200).animate({backgroundColor: '#DCDCDC'}, 200);
+
   }
 }
 

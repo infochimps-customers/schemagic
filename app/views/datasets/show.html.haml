@@ -18,6 +18,7 @@
           -for f in df.fields.by_column
             %li
               =f.name
+              (#{f.data_type})
               -unless f.doc.blank?
                 <span>--</span>
                 =f.doc

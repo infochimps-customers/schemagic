@@ -30,14 +30,10 @@
           If you have multiple related tables, use the "Add File" button to create additional forms
   .flowbox
     .data_files
-      -form.fields_for :data_files, :child_index => Time.now.to_i do |ff|
+      -form.fields_for :data_files do |ff|
         =render "data_file", :f => ff
-
-        #field_template{:style => "display:none;"}
-          =gen_field_template(ff)
-
-    #data_file_template{:style => "display:none;"}
-      =gen_data_file_template(form)
+      #data_file_template{:style => "display:none;"}
+        =gen_data_file_template(form)
 
     %div.add_file_button
       =link_to(image_tag("32/plus-a.png"), "#")
