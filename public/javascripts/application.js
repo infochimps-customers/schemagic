@@ -48,7 +48,7 @@ function add_file_block(link) {
 }
 
 function remove_field_block(link) {
-  $(link).prev("input:hidden").val("true");
+//  $(link).parent().siblings("[id*=destroy]").val("true");
   $(link).closest(".field_flowbox").fadeOut('fast', function(){renumerate_fields(link);});
 }
 
@@ -58,26 +58,27 @@ function add_field_block(link) {
 }
 
 function swap_block_up(link) {
-  if($(link).closest(".fields .field_flowbox").prev(".field_flowbox:visible").length > 0) {
-  var block = $(link).closest(".fields .field_flowbox");   
-    $(link).closest(".fields .field_flowbox").prev().before(block);
-   block.animate({backgroundColor: '#FFFFFF'}, 200).delay(100).animate({backgroundColor: '#DCDCDC'}, 200);
+  if($(link).closest(".field_flowbox:visible").prevAll(".field_flowbox:visible").length > 0) {
+    var block = $(link).closest(".field_flowbox:visible");   
+    $(link).closest(".field_flowbox:visible").prevAll(".field_flowbox:visible").first().before(block);
+    block.animate({backgroundColor: '#FFFFFF'}, 200).delay(100).animate({backgroundColor: '#DCDCDC'}, 200);
   }
 }
 
 function swap_block_down(link) {
-  if($(link).closest(".fields .field_flowbox").next(".field_flowbox:visible").length > 0) {  
-    var block = $(link).closest(".fields .field_flowbox");   
-    // $(link).closest(".fields .field_flowbox").next().after(block);
-    //  block.animate({backgroundColor: '#FFFFFF'}, 200).animate({backgroundColor: '#DCDCDC'}, 200);
-
+  if($(link).closest(".field_flowbox:visible").nextAll(".field_flowbox:visible").length > 0) {
+    var block = $(link).closest(".field_flowbox:visible");   
+    $(link).closest(".field_flowbox:visible").nextAll(".field_flowbox:visible").first().after(block);
+    block.animate({backgroundColor: '#FFFFFF'}, 200).animate({backgroundColor: '#DCDCDC'}, 200);
   }
 }
 
 function renumerate_fields(link) {
-  var fields = $(link).closest(".fields");
-  var index = 0;
-  $.each($(fields).find('.field_flowbox:visible'), function(){
-    $(this).find("[id*=column]").val(index++);
+  //reset column attributes on save for fields within each data file
+  $.each($(".flowbox .data_files .data_file_flowbox:visible"), function(){
+    var index = 0;    
+    $.each($(this).find(".fields .field_flowbox:visible"), function(){
+      $(this).find("[id*=column]").val(index++);
+    });
   });
 }
