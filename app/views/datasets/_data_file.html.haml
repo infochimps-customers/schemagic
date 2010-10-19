@@ -11,7 +11,7 @@
     =f.text_field :record_count
     %br.clear
   .fields
-    -data_file.fields.each do |field|
+    -data_file.fields.by_column.each do |field|
       -f.fields_for :fields, field do |ff|
         =render :partial => 'field', :locals => {:f => ff, :field => field}
       #field_template{:style => "display:none;"}
