@@ -61,7 +61,7 @@ function swap_block_up(link) {
   if($(link).closest(".field_flowbox:visible").prevAll(".field_flowbox:visible").length > 0) {
     var block = $(link).closest(".field_flowbox:visible");   
     $(link).closest(".field_flowbox:visible").prevAll(".field_flowbox:visible").first().before(block);
-    block.animate({backgroundColor: '#FFFFFF'}, 200).delay(100).animate({backgroundColor: '#DCDCDC'}, 200);
+    block.animate({backgroundColor: '#DCDCDC'}, 200).delay(100).animate({backgroundColor: '#F2F4F5'}, 200);
   }
 }
 
@@ -69,7 +69,7 @@ function swap_block_down(link) {
   if($(link).closest(".field_flowbox:visible").nextAll(".field_flowbox:visible").length > 0) {
     var block = $(link).closest(".field_flowbox:visible");   
     $(link).closest(".field_flowbox:visible").nextAll(".field_flowbox:visible").first().after(block);
-    block.animate({backgroundColor: '#FFFFFF'}, 200).animate({backgroundColor: '#DCDCDC'}, 200);
+    block.animate({backgroundColor: '#DCDCDC'}, 200).delay(100).animate({backgroundColor: '#F2F4F5'}, 200);
   }
 }
 
