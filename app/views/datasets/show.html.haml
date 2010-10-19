@@ -22,5 +22,9 @@
               -unless f.doc.blank?
                 <span>--</span>
                 =f.doc
+%h2                
+  Schema:
+=@dataset.schema.to_json
+%br
 %br
 =link_to "Edit Schema", edit_dataset_path(@dataset.uuid)
