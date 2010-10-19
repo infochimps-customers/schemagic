@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101015204245) do
+ActiveRecord::Schema.define(:version => 20101015214338) do
 
   create_table "data_files", :force => true do |t|
     t.string   "title"
@@ -29,7 +29,10 @@ ActiveRecord::Schema.define(:version => 20101015204245) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "uuid"
   end
+
+  add_index "datasets", ["uuid"], :name => "index_datasets_on_uuid"
 
   create_table "fields", :force => true do |t|
     t.string   "name"

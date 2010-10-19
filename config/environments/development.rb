@@ -8,6 +8,19 @@ config.cache_classes = false
 # Log error messages when you accidentally call methods on nil.
 config.whiny_nils = true
 
+# ActionMailer users our google account
+config.action_mailer.raise_delivery_errors = true
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  :enable_starttls_auto => true,
+  :address => 'smtp.gmail.com',
+  :port => 587,
+  :domain => 'infochimps.org',
+  :authentication => :plain,
+  :user_name => 'no-reply@infochimps.org',
+  :password => 'seBe3poh'
+}
+
 # Show full error reports and disable caching
 config.action_controller.consider_all_requests_local = true
 config.action_view.debug_rjs                         = true
