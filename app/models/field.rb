@@ -6,6 +6,6 @@ class Field < ActiveRecord::Base
   named_scope :by_column, :order => "column ASC"
 
   TYPES=
-    [["String","string"],["Integer","long"],["Decimal","double"]]
+    [["String","string"],["Integer","long"],["Decimal","double"],["Null","null"],["Bytes","bytes"]]
 
 end

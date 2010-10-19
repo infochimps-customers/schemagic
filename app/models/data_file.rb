@@ -7,16 +7,19 @@ class DataFile < ActiveRecord::Base
   accepts_nested_attributes_for :fields, :reject_if =>  lambda { |attrs| attrs['name'].blank?}, :allow_destroy => true
 
   validates_presence_of :title
-  validates_presence_of :schema
 
-  before_validation :build_schema
-
-  def build_schema
-    schema_fields = [] << self.fields.by_column do |field|
-            field.to_json(:only => [:name, :data_type,:doc])
-
+  def build_record
+    avro_record = { }
+    avro_record[:name] = self.title
+    avro_record[:type] = "record"
+    avro_record[:fields] = []
+    self.fields.by_column.each do |field|
+      attrs = field.attributes
+      #'type' is a reserved type in ruby for STI, so we'll just switch it over here
+      attrs["type"] = attrs["data_type"]
+      avro_record[:fields] << attrs.to_json(:only => ["name", "type","doc"])
     end
-    self.schema = schema_fields
+    avro_record
   end
 
 end
