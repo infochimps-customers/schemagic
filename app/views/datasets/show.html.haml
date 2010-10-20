@@ -56,7 +56,7 @@
 %h2                
   Generated Schema:
 %div.schema_print  
-  =@dataset.schema.to_json
+  %pre=JSON.pretty_generate(@dataset.schema)
 %br
 %br
 =link_to "Edit Schema", edit_dataset_path(@dataset.uuid)
