@@ -52,10 +52,14 @@
                 %td                  
                   -unless f.doc.blank?            
                     =f.doc
+%br
 %h2                
   Generated Schema:
-=@dataset.schema.to_json
+%div.schema_print  
+  =@dataset.schema.to_json
 %br
 %br
 =link_to "Edit Schema", edit_dataset_path(@dataset.uuid)
 =link_to "Submit Schema", "#", :style => "float:right"
+%br
+%br
