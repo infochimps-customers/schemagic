@@ -1,6 +1,7 @@
 %div.data_file_flowbox
   %h2.file_header
     Data File
+  =f.hidden_field :_destroy            
   %div.remove_file_button{:style => "float:right;"}
     =link_to(image_tag("cross.png"), "#")
   %div.forms
@@ -14,8 +15,8 @@
     -data_file.fields.by_column.each do |field|
       -f.fields_for :fields, field do |ff|
         =render :partial => 'field', :locals => {:f => ff, :field => field}
-      #field_template{:style => "display:none;"}
-        =gen_field_template(f)
+    #field_template{:style => "display:none;"}
+      =gen_field_template(f)
   %br
   %div.add_field_button
     =link_to(image_tag("32/plus-h.png"), "#")
