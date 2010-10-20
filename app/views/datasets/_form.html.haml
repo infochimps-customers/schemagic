@@ -8,22 +8,26 @@
 
     =form.label :email, "Email*"
     =form.text_field :email
-
+  #div{:style => "float:right;"}
     =form.label :contact_name
     =form.text_field :contact_name
 
     =form.label :phone
     =form.text_field :phone
+%div.step
+  %h3
+    2. Describe the dataset you are submitting and provide a brief description
+.flowbox.boxtop
   #div
     =form.label :title, "Dataset Title*"
     =form.text_field :title
-
+  #div{:style => "float:right;"}
     =form.label :description, "Dataset Description*"
-    =form.text_area :description, :rows => 3
+    =form.text_area :description
 %br.clear
 %div.step 
   %h3
-    2. Describe the fields of the table
+    3. Describe the fields of the table
   %h4
     %ul
       %li
@@ -42,7 +46,7 @@
 %br.clear
 %div.step
   %h3
-    3. Click "Review" to see a summary of the dataset schema
+    4. Click "Review" to see a summary of the dataset schema
   %h4
     %ul
       %li
