@@ -73,9 +73,9 @@ function swap_block_down(link) {
 function renumerate_fields(link) {
   //reset column attributes on save for fields within each data file
   $.each($(".flowbox .data_files .data_file_flowbox:visible"), function(){
-    var index = 0;    
+    var col_index = 1;    
     $.each($(this).find(".fields .field_flowbox:visible"), function(){
-      $(this).find("[id*=column]").val(index++);
+      $(this).find("[id*=column]").val(col_index++);
     });
   });
 }
