@@ -14,6 +14,7 @@
 
     =form.label :phone
     =form.text_field :phone
+%br.clear    
 %div.step
   %h3
     2. Describe the dataset you are submitting and provide a brief description
@@ -41,7 +42,7 @@
       =gen_data_file_template(form)
 
   %div.add_file_button
-    =link_to(image_tag("32/plus-a.png"), "#")
+    =link_to(image_tag("plus-a.png"), "#")
 
 %br.clear
 %div.step

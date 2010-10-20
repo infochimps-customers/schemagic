@@ -11,17 +11,19 @@
 }
 
 .field_flowbox {
-  margin-top:10px;
-  display: block;  
-  background-color: #F2F4F5;
-  border: 1px solid #C7D1D4;
-  padding: 5px 10px 5px 10px;
-  margin-bottom: 3px;
-  -moz-border-radius: 2px; 
-  -webkit-border-radius: 2px;
-  overflow:auto;
-  width: 95%;
+	-moz-border-radius:10px 10px 10px 10px;
+	background-color:#F2F4F5;
+	border:1px solid #C7D1D4;
+	display:block;
+	margin-bottom:3px;
+	overflow:auto;
+	padding:5px 10px 10px;
+	position:relative;
 }
+
+
+
+
 
 .flowbox {
   display: block;  
@@ -35,51 +37,23 @@
   position:relative;
 }
 
-.step {
-  padding:10px;
-}
-
-.field_options {
-  float:right;
-  width:16px;
-}
-
-.add_field_button{width:32px;height:32px;}
-.add_file_button{width:32px;height:32px; position:relative; top:5px; left:23px;}
+.step {padding:10px;}
+.field_options {float:right; width:22px;}
+.add_field_button{width:32px;height:25px;}
+.add_file_button{width:32px;height:25px; position:relative; top:5px; left:23px;}
 .add_field_button span {display:block; float:left;}
-
 input#dataset_submit {font-size:16px;}
-
 
 body {
   background-color: #FFF;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
 }
-
-.field_header {
-  float:left;
-  width:150px;
-}
-
-.file_header {
-  float:left;
-  width:160px;
-}
-
-a img {
-  border: none;
-}
-
-a {
-  color: #0000FF;
-}
-
-.clear {
-  clear: both;
-  height: 0;
-  overflow: hidden;
-}
+.field_header {float:left; width:150px;}
+.file_header {float:left; width:160px;}
+a img {border: none;}
+a {color: #0000FF;}
+.clear {clear: both; height: 0; overflow: hidden; }
 
 #inner_container {
   width: 950px;
@@ -87,30 +61,26 @@ a {
   background-color: #FFF;
   margin-top: 20px;
 }
-
 #nav_container{
   width: 960px;
   margin: 0 auto;	
   margin-top:10px;
   border-bottom:2px solid #4D5D85;
+  font:14px arial;  
 }
-
 #inner_container p {
   font:14px arial;
   line-height:20px;
 }
-
 #nav_container h1 {
 	color:#10293A;
 	font-size:48px;
 	font-weight:bold;
 }
-
 #flash_notice, #flash_error {
   padding: 5px 8px;
   margin: 10px 0;
 }
-
 #flash_notice {
   background-color: #CFC;
   border: solid 1px #6C6;
@@ -120,45 +90,44 @@ a {
   background-color: #FCC;
   border: solid 1px #C66;
 }
-
 .fieldWithErrors {
   display: inline;
 }
-
 #errorExplanation {
-  width: 400px;
-  border: 2px solid #CF0000;
-  padding: 0px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
+	border: 1px solid #CF0000;
+	padding: 0px;
+	padding-bottom: 12px;
+	margin-bottom: 20px;
+	background-color: #F2F4F5;
 }
-
 #errorExplanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: 0;
-  background-color: #c00;
-  color: #fff;
+	text-align: left;
+	padding: 5px 5px 5px 50px;
+	font-size: 12px;
+	margin: 0;
+	color: #fff;
+	background: #C00 url(alert.png) no-repeat 6px 4px;
 }
-
-#errorExplanation p {
-  color: #333;
-  margin-bottom: 0;
-  padding: 8px;
+#errorExplanation > p {
+	color: #333;
+	margin-bottom: 0;
+	padding: 8px 17px;
+	font-weight:bold;
 }
-
 #errorExplanation ul {
-  margin: 2px 24px;
+	margin: 2px 0px;
+	font:12px arial;
+	line-height:20px;
 }
-
 #errorExplanation ul li {
-  font-size: 12px;
-  list-style: disc;
+	font-size: 12px;
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	vertical-align:top;
+	width:49%;
 }
-
 .flowbox.boxtop label {
 	width:200px;
 	display:block;
@@ -184,12 +153,8 @@ a {
 	height:50px;
 	font:12px arial;
 }
-h2 {
-	font-size:30px !important;
-}
-h4 ul {
-	list-style:none;	
-}
+h2 {font-size:29px !important;}
+h4 ul {	list-style:none;}
 
 h4 ul li {
 	padding:5px 0px 5px 35px;
@@ -228,8 +193,17 @@ h4 ul li {
 .forms input, .subforms input, .subforms select {padding:3px 0px;}
 .smaller-label {width:75px !important;}
 .add_field_button a img {float:left;}
-
-
 #container {padding-bottom:20px;}
 
+.flowbox > .flowbox {background-color:#FFF;}
+.flowbox > #div {font:14px arial; line-height:20px; position:relative; top:2px;}
+.flowbox > h3 {margin:5px 0px;}
+.flowbox > .flowbox > h3 {font-size:15px; line-height:18px; padding-bottom:2px;}
+.flowbox > table {font:12px arial;}
+.flowbox > table > thead * {font:bold 13px arial;}
+.flowbox > table > * > tr > * {border-left:1px solid #FFF; border-bottom:1px solid #FFF;}
 
+#inner_container > a {font:12px arial; padding:5px; -moz-border-radius: 5px; 
+  -webkit-border-radius: 5px; background-color: #F2F4F5; border: 1px solid #C7D1D4; text-decoration:none;}
+#inner_container > a:hover {color:#000; text-decoration:none; background-color:#C3D9FF;}
+#container {margin-bottom:40px;}
