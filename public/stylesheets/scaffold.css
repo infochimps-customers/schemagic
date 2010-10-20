@@ -194,8 +194,7 @@ h4 ul {
 	list-style:none;
 }
 h4 ul li {
-	padding:5px 0px 5px 35px;
-	background:url("list.jpg") no-repeat left 4px !important;
+	padding:5px 0px 5px 0px;
 	display:block;
 	font-size:17px;
 }
