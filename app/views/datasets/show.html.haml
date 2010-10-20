@@ -1,30 +1,61 @@
-%h1
-  Company: 
-  =@dataset.company_name
+.flowbox
+  #div
+    Company:
+    =@dataset.company_name
+    %br
+    Email:
+    =@dataset.email
+  -if @dataset.contact_name.present? || @dataset.phone.present?
+    #div
+      -if @dataset.contact_name.present?
+        Contact:
+        =@dataset.contact_name
+      -if @dataset.phone.present?
+        %br
+        Phone:
+        =@dataset.phone
 %br
 %h2
-  Dataset: 
+  Dataset
   =@dataset.title
-%h3
-  Data Files:
--if @dataset.data_files.empty?
-  No files yet, please add a file before submitting.
--else
-  %ul  
+.flowbox
+  %h3
+    Data Files
+  -if @dataset.data_files.empty?
+    No files yet, please go back and add a data file.
+  -else
     -for df in @dataset.data_files
-      %li
-        =df.title
-        %ul
+      .flowbox
+        %h3
+          Title/Path: #{df.title}
+          %br
+          Number of Records: #{df.record_count}
+        %table
+          %thead
+            %th
+              Column
+            %th
+              Field Name
+            %th
+              Data Type
+            %th
+              Description
           -for f in df.fields.by_column
-            %li
-              =f.name
-              [#{f.data_type}]
-              -unless f.doc.blank?
-                <span>--</span>
-                =f.doc
+            %tbody
+              %tr
+                %th
+                  =f.column
+                %th
+                  =f.name
+                %th
+                  =f.data_type
+                %td                  
+                  -unless f.doc.blank?            
+                    =f.doc
 %h2                
-  Schema:
+  Generated Schema:
 =@dataset.schema.to_json
 %br
 %br
 =link_to "Edit Schema", edit_dataset_path(@dataset.uuid)
+=link_to "Submit Schema", "#", :style => "float:right"
