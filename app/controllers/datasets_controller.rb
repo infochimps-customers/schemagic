@@ -16,6 +16,18 @@ class DatasetsController < ApplicationController
     end
   end
 
+  def schema
+    @dataset = Dataset.find_by_uuid(params[:id])
+    render :json => @dataset.schema.to_json , :callback => params[:callback] || ''
+  end
+
+  def mail
+    @dataset = Dataset.find_by_uuid(params[:id])
+    Emailer.deliver_schema(@dataset)
+    flash[:notice] = "Schema delivered successfully"
+    redirect_to dataset_path(@dataset.uuid)
+  end
+
   def show
     @dataset = (Dataset.find_by_uuid(params[:id]) or raise ActiveRecord::RecordNotFound.new)
   end

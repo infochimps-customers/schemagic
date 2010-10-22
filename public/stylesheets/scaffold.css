@@ -119,6 +119,7 @@ a {
 #flash_notice {
 	background-color: #CFC;
 	border: solid 1px #6C6;
+	font:12px arial;                
 }
 #flash_error {
 	background-color: #FCC;

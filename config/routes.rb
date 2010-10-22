@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
-  #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
+     map.connect 'datasets/:id/schema', :controller => 'datasets', :action => 'schema'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
@@ -13,6 +13,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :datasets do |m|
     m.resources :data_files
   end
+
+  map.mail 'datasets/:id/mail', :controller => :datasets, :action => :mail
+
 
   # Sample resource route with options:
   #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }

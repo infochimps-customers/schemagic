@@ -1,3 +1,6 @@
+-if flash[:notice]
+  #flash_notice
+    =flash[:notice]
 .flowbox
   #div
     Company:
@@ -28,8 +31,9 @@
       .flowbox
         %h3
           Title/Path: #{df.title}
-          %br
-          Number of Records: #{df.record_count}
+          -if df.record_count
+            %br
+            Number of Records: #{df.record_count}
         %table
           %thead
             %th
@@ -60,6 +64,7 @@
 %br
 %br
 =link_to "Edit Schema", edit_dataset_path(@dataset.uuid)
-=link_to "Submit Schema", "#", :style => "float:right"
+-form_for @dataset, :url => mail_path(@dataset.uuid) do |f|
+  =f.submit "Submit Schema", :style => "float:right;", :confirm => "Are you sure?"
 %br
 %br
