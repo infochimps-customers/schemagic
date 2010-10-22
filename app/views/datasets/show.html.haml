@@ -36,14 +36,15 @@
             Number of Records: #{df.record_count}
         %table
           %thead
-            %th
-              Column
-            %th
-              Field Name
-            %th
-              Data Type
-            %th
-              Description
+            %tr
+              %th
+                Column
+              %th
+                Field Name
+              %th
+                Data Type
+              %th
+                Description
           -for f in df.fields.by_column
             %tbody
               %tr

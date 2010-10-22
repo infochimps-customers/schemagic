@@ -8,13 +8,12 @@
 
     =form.label :email, "Email*"
     =form.text_field :email
-  #div{:style => "float:right;"}
+  #div.right
     =form.label :contact_name
     =form.text_field :contact_name
 
     =form.label :phone
     =form.text_field :phone
-%br.clear    
 %div.step
   %h3
     2. Describe the dataset you are submitting and provide a brief description
@@ -22,10 +21,9 @@
   #div
     =form.label :title, "Dataset Title*"
     =form.text_field :title
-  #div{:style => "float:right;"}
+  #div.right
     =form.label :description, "Dataset Description*"
     =form.text_area :description
-%br.clear
 %div.step 
   %h3
     3. Describe the fields of the table
@@ -38,13 +36,10 @@
     -@dataset.data_files.each do |data_file|
       -form.fields_for :data_files, data_file do |ff|
         =render :partial => 'data_file', :locals => {:f => ff,:data_file => data_file}
-    #data_file_template{:style => "display:none;"}
+    #data_file_template
       =gen_data_file_template(form)
-
   %div.add_file_button
     =link_to(image_tag("plus-a.png"), "#")
-
-%br.clear
 %div.step
   %h3
     4. Click "Review" to see a summary of the dataset schema
@@ -52,5 +47,5 @@
     %ul
       %li
         You can always come back and make changes
-%div{:style => "float:right;"}
+%div.right
   =form.submit "Review"

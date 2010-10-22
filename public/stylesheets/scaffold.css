@@ -291,3 +291,11 @@ h4 ul li {
 	margin-bottom:10px;
 	font:14px arial;
 }
+
+.right {
+       float:right;
+}
+
+#data_file_template,#field_template {
+  display:none;
+}
