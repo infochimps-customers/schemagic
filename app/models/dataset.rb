@@ -18,14 +18,29 @@ class Dataset < ActiveRecord::Base
   end
 
   def schema
-    schema = { }
-    schema[:title] = self.title
-    schema[:descripton] = self.description
-    schema[:dataset] = []
-    self.data_files.each do |df|
-      schema[:dataset] << df.build_record
-    end
-    schema
+    {
+      :title        => title,
+      :description  => description,
+      :uuid         => uuid,
+      :company_name => company_name,
+      :contact_name => contact_name,
+      :email        => email,
+      :phone        => phone,
+      :dataset      => data_files.map do |data_file|
+        {
+          :name         => data_file.title,
+          :record_count => data_file.record_count,
+          :type         => 'record',
+          :fields       => data_file.fields.by_column.map do |field|
+            {
+              :name  => field.name,
+              :doc   => field.doc,
+              :type  => field.data_type,
+            }
+          end
+        }
+      end
+    }
   end
 
 end

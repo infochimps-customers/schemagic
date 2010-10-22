@@ -16,11 +16,6 @@ class DatasetsController < ApplicationController
     end
   end
 
-  def schema
-    @dataset = Dataset.find_by_uuid(params[:id])
-    render :json => @dataset.schema.to_json , :callback => params[:callback] || ''
-  end
-
   def mail
     @dataset = Dataset.find_by_uuid(params[:id])
     Emailer.deliver_schema(@dataset)
@@ -30,6 +25,12 @@ class DatasetsController < ApplicationController
 
   def show
     @dataset = (Dataset.find_by_uuid(params[:id]) or raise ActiveRecord::RecordNotFound.new)
+    respond_to do |format|
+      format.html { render }
+      format.xml   { render :xml  => @dataset.schema }
+      format.json  { render :json => @dataset.schema }
+      format.yaml  { render :yaml => @dataset.schema }
+    end
   end
 
   def edit
