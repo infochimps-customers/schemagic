@@ -20,7 +20,7 @@ config.action_mailer.smtp_settings = {
   :domain => 'infochimps.org',
   :authentication => :plain,
   :user_name => 'no-reply@infochimps.org',
-  :password => MAILER_PASS
+  :password =>  ENV['MAILER_PASS']
 }
 
 # Full error reports are disabled and caching is turned on
