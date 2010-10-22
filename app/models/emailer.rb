@@ -2,7 +2,7 @@ class Emailer < ActionMailer::Base
 
   def schema(dataset)
     recipients env_email
-    from       "no-reply@infochimps.org"
+    from       "no-reply@infochimps.com"
     subject    "#{dataset.company_name} submitted a schema on Schemagic!"
     sent_on    Time.now
     body  :dataset => dataset
@@ -14,6 +14,6 @@ class Emailer < ActionMailer::Base
   end
 
   def env_email
-    RAILS_ENV == "production" ? "bd@infochimps.org" : "infochimps@mailinator.com"
+    RAILS_ENV == "production" ? "bd@infochimps.com,datateam@infochimps.com" : "infochimps@mailinator.com"
   end
 end
