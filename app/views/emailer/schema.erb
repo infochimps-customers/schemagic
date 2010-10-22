@@ -1,17 +1,26 @@
+--- 
 schemagic_schema:
         info: >-
           The following is an Infochimps Schemagic schema declaration.  Following the metadata is the generated schema.  It consists of a hash with description fields, as well as a dataset key, which is an array of avro schemas, one for each data file submitted.
-
-        title: <%=@dataset.title%>
-        description: <%=@dataset.description%>
         uuid: <%=@dataset.uuid%>
         url: http://schemagic.heroku.com/datasets/<%=@dataset.uuid%>
-
         email: <%=@dataset.email%>
         company_name: <%=@dataset.company_name%>
         contact_name: <%=@dataset.contact_name%>
         phone: <%=@dataset.phone%>
-
+        data:
+          title: <%=@dataset.title%>
+          description: <%=@dataset.description%>
+          data_files:
+        <%-for df in @dataset.data_files-%>
+          - title: <%=df.title%>
+            record_count: <%=df.record_count%>
+            fields: 
+          <%-for f in df.fields.by_column-%>
+            - name: <%=f.name%>
+              type: <%=f.data_type%>
+              doc: <%=f.doc%>
+          <%-end%>
+        <%-end%>            
         schema: >-
           <%=@dataset.schema.to_json%>
-
