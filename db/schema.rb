@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101015214338) do
+ActiveRecord::Schema.define(:version => 20101117190902) do
 
   create_table "data_files", :force => true do |t|
     t.string   "title"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20101015214338) do
     t.datetime "updated_at"
     t.string   "data_type"
     t.integer  "column"
+    t.boolean  "index"
   end
 
   add_index "fields", ["data_file_id"], :name => "index_fields_on_data_file_id"

@@ -34,3 +34,6 @@ DEPENDENCIES
   rails (= 2.3.5)
   recaptcha
   uuidtools
+
+METADATA
+  version: 1.0.6

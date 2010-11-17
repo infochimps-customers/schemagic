@@ -8,7 +8,7 @@ config.cache_classes = false
 # Log error messages when you accidentally call methods on nil.
 config.whiny_nils = true
 
-# ActionMailer users our google account
+# ActionMailer uses our google account
 config.action_mailer.raise_delivery_errors = true
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {

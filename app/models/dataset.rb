@@ -36,6 +36,7 @@ class Dataset < ActiveRecord::Base
               :name  => field.name,
               :doc   => field.doc,
               :type  => field.data_type,
+              :index => field.index
             }
           end
         }
