@@ -30,13 +30,13 @@ class Dataset < ActiveRecord::Base
         {
           :name         => data_file.title,
           :record_count => data_file.record_count,
+          :indexes      => data_file.indexes,
           :type         => 'record',
           :fields       => data_file.fields.by_column.map do |field|
             {
               :name  => field.name,
               :doc   => field.doc,
-              :type  => field.data_type,
-              :index => field.index
+              :type  => field.data_type
             }
           end
         }

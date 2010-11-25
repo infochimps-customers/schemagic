@@ -8,4 +8,12 @@ class DataFile < ActiveRecord::Base
 
   validates_presence_of :title
 
+  def indexes
+    columns = []
+    fields.by_column.each do |field|
+      columns << field.name if field.index
+    end
+    columns
+  end
+
 end
