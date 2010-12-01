@@ -19,24 +19,24 @@ class Dataset < ActiveRecord::Base
 
   def schema
     {
-      :title        => title,
-      :description  => description,
-      :uuid         => uuid,
-      :company_name => company_name,
-      :contact_name => contact_name,
-      :email        => email,
-      :phone        => phone,
-      :dataset      => data_files.map do |data_file|
+      'title'        => title,
+      'description'  => description,
+      'uuid'         => uuid,
+      'company_name' => company_name,
+      'contact_name' => contact_name,
+      'email'        => email,
+      'phone'        => phone,
+      'dataset'      => data_files.map do |data_file|
         {
-          :name         => data_file.title,
-          :record_count => data_file.record_count,
-          :indexes      => data_file.indexes,
-          :type         => 'record',
-          :fields       => data_file.fields.by_column.map do |field|
+          'name'         => data_file.title,
+          'record_count' => data_file.record_count,
+          'indexes'      => data_file.indexes,
+          'type'         => 'record',
+          'fields'       => data_file.fields.by_column.map do |field|
             {
-              :name  => field.name,
-              :doc   => field.doc,
-              :type  => field.data_type
+              'name'  => field.name,
+              'doc'   => field.doc,
+              'type'  => field.data_type
             }
           end
         }
